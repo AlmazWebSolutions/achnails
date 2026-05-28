@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACH Nails Aneta Chmielińska - Paznokcie Warszawa | Manicure & Pedicure</title>
+    <!-- Google Fonts: Elegancki szeryfowy i nowoczesny bezszeryfowy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ZMIENNE I RESET STYLÓW --- */
+        :root {
+            --color-bg: #FCF8F6;
+            --color-accent: #48cae4; /* Eleganckie złoto */
+            --color-accent-hover: #26a8d2;
+            --color-text-dark: #2C2C2C;
+            --color-text-light: #666666;
+            --color-card-bg: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            background-color: rgba(252, 248, 246, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #EAEAEA;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: var(--color-text-dark);
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .btn-booksy {
+            background-color: var(--color-accent);
+            color: #FFF !important;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: background-color 0.3s, transform 0.2s !important;
+        }
+
+        .btn-booksy:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            padding: 100px 0 80px 0;
+            text-align: center;
+            background: radial-gradient(circle at top, #FFF0EB 0%, var(--color-bg) 70%);
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: #FFF;
+            text-decoration: none;
+            padding: 16px 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background-color: var(--color-accent-hover);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-badge {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #4F8A10;
+            font-weight: 600;
+        }
+
+        /* --- CENNIK --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-accent);
+            margin: 15px auto 0 auto;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .price-category {
+            background-color: var(--color-card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-top: 3px solid var(--color-accent);
+        }
+
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--color-text-dark);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .price-item-name {
+            font-weight: 600;
+            background-color: var(--color-card-bg);
+            padding-right: 10px;
+            z-index: 2;
+        }
+
+        .price-item-dots {
+            flex-grow: 1;
+            border-bottom: 1px dashed #E0E0E0;
+            margin: 0 10px;
+            position: relative;
+            top: -4px;
+        }
+
+        .price-item-value {
+            font-weight: 600;
+            color: var(--color-accent);
+            background-color: var(--color-card-bg);
+            padding-left: 10px;
+            z-index: 2;
+        }
+
+        .price-item-desc {
+            font-size: 12px;
+            color: var(--color-text-light);
+            margin-top: -15px;
+            margin-bottom: 15px;
+        }
+
+        /* --- OPINIE --- */
+        .bg-white {
+            background-color: var(--color-card-bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--color-bg);
+            padding: 30px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--color-accent);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--color-text-dark);
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+
+        /* --- KONTAKT & MAPA --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .info-list strong {
+            color: var(--color-accent);
+        }
+
+        .map-placeholder {
+            background-color: #EAEAEA;
+            height: 350px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid #DDD;
+        }
+
+        /* --- STOPKA --- */
+        footer {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSYWNOŚĆ (MEDIA QUERIES) --- */
+        @media (max-width: 900px) {
+            .price-grid, .reviews-grid, .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 34px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a:not(.btn-booksy) {
+                display: none; /* Uproszczenie menu mobilnego */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- RESTRUKTURYZACJA MENU -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">ACH<span>NAILS</span></a>
+            <div class="nav-links">
+                <a href="#cennik">Cennik</a>
+                <a href="#opinie">Opinie</a>
+                <a href="#kontakt">Kontakt</a>
+                <!-- TUTAJ WKLEJ SWÓJ LINK DO BOOKSY -->
+                <a href="https://booksy.com/pl-pl/187199_ach-nails-aneta-chmielinska_paznokcie_3_warszawa" target="_blank" class="btn-booksy">Zarezerwuj online</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BANNER GŁÓWNY (HERO) -->
+    <header>
+        <div class="container">
+            <h1 class="hero-title">Perfekcyjne paznokcie w każdym detalu</h1>
+            <p class="hero-subtitle">Zapraszam Cię do świata profesjonalnej stylizacji paznokci w Warszawie. Bezpieczeństwo, sterylne narzędzia i najwyższa jakość usług.</p>
+            <!-- TUTAJ WKLEJ SWÓJ LINK DO BOOKSY -->
+            <a href="https://booksy.com/pl-pl/187199_ach-nails-aneta-chmielinska_paznokcie_3_warszawa" target="_blank" class="hero-cta">Zarezerwuj wizytę przez Booksy</a>
+            <div class="hero-badge">★ Średnia ocena 4.9/5 na Booksy</div>
+        </div>
+    </header>
+
+    <section id="cennik" class="section">
+    <div class="container">
+        <h2 class="section-title">Cennik Usług</h2>
+        <div class="price-grid">
+            
+            <div class="price-category">
+                <h3 class="category-title">Manicure Tytanowy</h3>
+                
+                <div class="price-item">
+                    <span class="price-item-name">Manicure tytanowy (czysta płytka)</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 175 zł</span>
+                </div>
+                <div class="price-item-desc">Jeden kolor: 175 zł | French: 185 zł | Babyboomer/Ombre: 200 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Manicure tytanowy + zdjęcie stylizacji</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 175 zł</span>
+                </div>
+                <div class="price-item-desc">Z usunięciem poprzedniej hybrydy/tytanu (+10 zł z innego salonu). Jeden kolor: 175 zł | French: 185 zł | Babyboomer/Ombre: 200 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Przedłużanie paznokci tytanem</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 240 zł</span>
+                </div>
+                <div class="price-item-desc">Jeden kolor: 240 zł | French: 255 zł | Babyboomer/Ombre: 265 zł (wymagany zadatek 100 zł).</div>
+            </div>
+
+            <div class="price-category">
+                <h3 class="category-title">Manicure Hybrydowy & Klasyczny</h3>
+                
+                <div class="price-item">
+                    <span class="price-item-name">Manicure hybrydowy (czysta płytka)</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 150 zł</span>
+                </div>
+                <div class="price-item-desc">Jeden kolor: 150 zł | French: 165 zł | Babyboomer/Ombre: 175 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Manicure hybrydowy + zdjęcie stylizacji</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 150 zł</span>
+                </div>
+                <div class="price-item-desc">Z usunięciem poprzedniej stylizacji. Jeden kolor: 150 zł | French: 165 zł | Babyboomer/Ombre: 175 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Manicure klasyczny (odżywka / bez)</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">80 zł</span>
+                </div>
+                <div class="price-item-desc">Tradycyjne i bezpieczne opracowanie skórek oraz naturalnej płytki.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Manicure z malowaniem kolorem</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">100 zł</span>
+                </div>
+                <div class="price-item-desc">Klasyczny manicure zakończony malowaniem tradycyjnym lakierem.</div>
+            </div>
+
+            <div class="price-category">
+                <h3 class="category-title">Pedicure & Półpedicure</h3>
+                
+                <div class="price-item">
+                    <span class="price-item-name">Pedicure hybrydowy</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 185 zł</span>
+                </div>
+                <div class="price-item-desc">Pełna pielęgnacja stóp. Jeden kolor: 185 zł | French: 195 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Półpedicure hybrydowy</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 155 zł</span>
+                </div>
+                <div class="price-item-desc">Skrócenie i opracowanie paznokci + kolor. Jeden kolor: 155 zł | French: 165 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Pedicure tytanowy</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">195 zł</span>
+                </div>
+                <div class="price-item-desc">Trwała i zdrowa stylizacja tytanowa dedykowana dla paznokci u stóp.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Pedicure kwasowy</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 200 zł</span>
+                </div>
+                <div class="price-item-desc">Z odżywką: 200 zł | Lakier klasyczny: 210 zł | Lakier hybrydowy: 220 zł.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Pedicure klasyczny</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 140 zł</span>
+                </div>
+                <div class="price-item-desc">Z odżywką lub bez: 140 zł | Z malowaniem kolorem klasycznym: 160 zł.</div>
+            </div>
+
+            <div class="price-category">
+                <h3 class="category-title">Inne Usługi & Usuwanie</h3>
+                
+                <div class="price-item">
+                    <span class="price-item-name">Zabieg SPA na dłonie</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">50 zł</span>
+                </div>
+                <div class="price-item-desc">Głębokie nawilżenie: peeling dłoni, odżywcza maska oraz kąpiel w ciepłej parafinie.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Naprawa paznokcia</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">20 zł</span>
+                </div>
+                <div class="price-item-desc">Ekspresowy ratunek dla pojedynczego uszkodzonego paznokcia.</div>
+
+                <div class="price-item">
+                    <span class="price-item-name">Usunięcie stylizacji z dłoni / stóp</span>
+                    <span class="price-item-dots"></span>
+                    <span class="price-item-value">od 30 zł</span>
+                </div>
+                <div class="price-item-desc">Bez opracowania skórek: Tytan 30 zł | Hybryda dłonie/stopy 40 zł | Żel/Akryl 70 zł.</div>
+            </div>
+
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="https://booksy.com/pl-pl/187199_ach-nails-aneta-chmielinska_paznokcie_3_warszawa" target="_blank" class="hero-cta">Zarezerwuj wybraną usługę na Booksy</a>
+        </div>
+    </div>
+</section>
+
+    <!-- SEKCJA: OPINIE -->
+    <section id="opinie" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title">Co mówią klientki?</h2>
+            <div class="reviews-grid">
+                
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Pani Aneta wykonała bardzo ładny manicure tytanowy. Nigdy wcześniej nie miałam tego rodzaju manicure - a bardzo służy moim paznokciom! Są wzmocnione i dłuższe, odzyskałam pewność i brak kompleksów! Wracam ponownie! :)"</p>
+                    <div class="review-author">— Sylwia</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Z usług salonu korzystam od roku i zawsze wychodzę zadowolona;) Pani Aneta bardzo dokładnie i sprawnie robi paznokcie, a przy tym jest również dusza artystyczną,  bo od nudnego różu, po frencha czy spidermana na paznokciach zawsze wychodzę zadowolona z efektu. Piękne paznokcie+czysty salon+kawa= umówiona kolejna wizyta :)"</p>
+                    <div class="review-author">— K.Z</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Przychodzę do Pani Anety na stylizację paznokci  od ponad roku i zawsze wychodzę bardzo zadowolona ☺️ Tytany wykonywane są wyjątkowo starannie i z dbałością o najmniejszy szczegół. Polecam ❤️"</p>
+                    <div class="review-author">— Dorota</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA: KONTAKT -->
+    <section id="kontakt" class="section">
+        <div class="container">
+            <h2 class="section-title">Kontakt i Lokalizacja</h2>
+            <div class="contact-layout">
+                
+                <div>
+                    <ul class="info-list">
+                        <li><strong>Salon:</strong> ACH Nails Aneta Chmielińska</li>
+                        <li><strong>Adres:</strong> Kabacki Dukt 1, 02-798 Warszawa</li>
+                        <li><strong>Telefon:</strong> +48 787 800 525</li>
+                        <li><strong>Godziny otwarcia:</strong> Pon - Pt: 9:00 - 21:00</li>
+                    </ul>
+                    <p style="margin-bottom: 25px; color: var(--color-text-light);">
+                        Pracuję wyłącznie na sprawdzonych, certyfikowanych produktach. Wszystkie narzędzia metalowe są sterylizowane, a pilniczki są jednorazowe.
+                    </p>
+                    <!-- TUTAJ WKLEJ SWÓJ LINK DO BOOKSY -->
+                    <a href="https://booksy.com/pl-pl/187199_ach-nails-aneta-chmielinska_paznokcie_3_warszawa" target="_blank" class="hero-cta">Zarezerwuj termin teraz</a>
+                </div>
+
+                <div>
+                    <!-- MAPA GOOGLE (Wdrożeniowo podmieniasz poniższy div na kod iframe z Google Maps) -->
+                    <div class="map-placeholder">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19593.50013335906!2d21.0242468743164!3d52.13091040000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17ea22363797777%3A0xc4bf2574f476c58e!2sAchNails%20Aneta%20Chmieli%C5%84ska!5e0!3m2!1spl!2spl!4v1779976895181!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ACH Nails Aneta Chmielińska - Warszawa. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
